@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {db} = require('../../db/db');
+const { db } = require('../../db/db');
 
 function createNewNote(body, dbArray) {
   const notes = body;
@@ -12,7 +12,8 @@ function createNewNote(body, dbArray) {
 }
 
 router.get('/notes', (req, res) => {
-  res.json(db);
+  let results = db
+  res.json(results);
 });
 
 router.post('/notes', (req, res) => {
