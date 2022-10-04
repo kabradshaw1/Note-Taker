@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const { db } = require('../../db/db');
+const fs = require('fs');
+const path = require('path');
 
 function createNewNote(body, dbArray) {
   const notes = body;
   dbArray.push(notes);
-  FileSystem.writeFileSync(
+  fs.writeFileSync(
     path.join(__dirname, '../../db/db.json'),
     JSON.stringify({ notes: dbArray }, null, 2)
   )
@@ -19,8 +21,8 @@ router.get('/notes', (req, res) => {
 router.post('/notes', (req, res) => {
   req.body.id = db.length.toString();
 
-  const db = createNewNote(req.body, db)
-  res.json(db);
+  const note = createNewNote(req.body, db)
+  res.json(note);
   
 })
 
