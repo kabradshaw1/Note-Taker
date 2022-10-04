@@ -1,3 +1,5 @@
+// I didn't need to make any changes to this code.  It was all provided.  
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
